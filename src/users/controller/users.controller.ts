@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { tbUsers } from '../models/entity/users.entity';
 import { UsersService } from '../service/users.service';
 @Controller('users')
@@ -10,6 +10,11 @@ export class UsersController {
     @Post()
     create(@Body() body: tbUsers) {
         return this.userService.create(body)
+    }
+
+    @Put()
+    update(@Body() body: tbUsers) {
+        return this.userService.update(body)
     }
 
     @Get("exists/:type/:value")

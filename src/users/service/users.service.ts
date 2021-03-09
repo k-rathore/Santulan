@@ -33,6 +33,14 @@ export class UsersService {
         }
     }
 
+    async update(body: tbUsers) {
+        try {
+            return (await this.usersRepo.update(body.id, body)).affected > 0
+        } catch (error) {
+            throw error
+        }
+    }
+
     async doExists(type: string, value: string) {
         try {
             const user = await this.usersRepo.findOne({
