@@ -32,4 +32,18 @@ export class UsersService {
             }
         }
     }
+
+    async doExists(type: string, value: string) {
+        try {
+            const user = await this.usersRepo.findOne({
+                where: {
+                    [type]: value
+                }
+            })
+            if(user) return true
+            return false
+        } catch (error) {
+            throw error
+        }
+    }
 }
