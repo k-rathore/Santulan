@@ -12,10 +12,10 @@ export class tbUsers {
     id: number
 
     @Column({select: false})
-    fullname: number
+    fullname: string
 
-    @Column({select: false})
-    token: string
+    @Column({select: false, nullable: true})
+    fcmToken: string
     
     @Column({select: false, unique: true})
     email: string
@@ -23,22 +23,22 @@ export class tbUsers {
     @Column({select: false, unique: true})
     phone: string
 
-    @Column({select: false})
+    @Column({select: false, nullable: true})
     dob: string
 
-    @Column({select: false})
+    @Column({select: false, nullable: true})
     gender: Gender
 
-    @Column({select: false})
+    @Column({select: false, nullable: true})
     occupation: string
 
-    @Column({nullable: false})
+    @Column({nullable: true})
     guardianName: string
 
-    @Column({nullable: false})
+    @Column({nullable: true})
     martialStatus: string
 
-    @Column({nullable: false})
+    @Column({nullable: true})
     addressLineOne: string
 
     @CreateDateColumn()
