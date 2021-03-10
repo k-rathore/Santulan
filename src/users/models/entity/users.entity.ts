@@ -6,6 +6,11 @@ enum Gender {
     OTHER = 2
 }
 
+enum MartialStatus {
+    MARRIED = 0,
+    UNMARRIED = 1
+}
+
 @Entity()
 export class tbUsers {
     @PrimaryGeneratedColumn()
@@ -36,10 +41,19 @@ export class tbUsers {
     guardianName: string
 
     @Column({nullable: true})
-    martialStatus: string
+    martialStatus: MartialStatus
 
     @Column({nullable: true})
     addressLineOne: string
+
+    @Column({nullable: true})
+    postalCode: string
+
+    @Column({nullable: true})
+    appVersion: string
+
+    @Column({nullable: true})
+    mobilePlatform: string
 
     @CreateDateColumn()
     createdAt: Date
